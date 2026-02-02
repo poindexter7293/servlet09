@@ -1,5 +1,5 @@
 
-package sec03.ex04;
+package sec04.ex01;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/login4")
-public class SessionTest4 extends HttpServlet{
+@WebServlet("/show")
+public class ShowMember extends HttpServlet{
 	
 	
 	@Override
@@ -28,7 +28,11 @@ public class SessionTest4 extends HttpServlet{
 		resp.setCharacterEncoding("UTF-8");
 		
 		PrintWriter out = resp.getWriter();
-		HttpSession httpSession = req.getSession();
+		
+		Boolean isLogon = false;
+		
+		
+		HttpSession httpSession = req.getSession(false);
 		
 		String user_id = req.getParameter("user_id");
 		String user_pw = req.getParameter("user_pw");	
